@@ -14,7 +14,7 @@ class Dosen extends CI_Controller{
 
     public function index(){
         $data['dosen'] = $this->dosen_model->getAll();
-        $this->load->view('index', $data);
+        $this->load->view('indexdosen', $data);
     }
 
     public function inputdatadosen(){
@@ -27,7 +27,7 @@ class Dosen extends CI_Controller{
         $validation->set_rules($dosen->rules());
 
         if ($validation->run()){
-            $dosen->simpan();            
+            $dosen->simpandosen();            
             $this->session->set_flashdata('success','Data Berhasil disimpan!');
             redirect(site_url('dosen/inputdatadosen'));   
             
@@ -62,7 +62,7 @@ class Dosen extends CI_Controller{
     public function hapusdatadosen($iddosennya = null){
         if (!isset($iddosennya)) show_404();
 
-        if ($this->dosen_model->hapus($iddosennya)){
+        if ($this->dosen_model->hapusdosen($iddosennya)){
             $this->session->set_flashdata('delete','Data Berhasil Dihapus!');
             redirect(site_url('dosen'));
         }

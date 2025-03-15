@@ -5,7 +5,7 @@
 Clone dengan menggunakan :
 
 ```sh
-git clone https://github.com/indrijunanda/crud-codeigniter-simple.git
+git clone https://github.com/WILLZ/crud-codeigniter-simple.git
 ```
 
 atau kamu bisa langsung download dalam bentuk **.zip**
