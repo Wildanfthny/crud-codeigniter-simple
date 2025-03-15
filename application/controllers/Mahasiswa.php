@@ -8,12 +8,13 @@ class Mahasiswa extends CI_Controller{
         $this->load->model('mahasiswa_model');
         $this->load->library('form_validation');   
         $this->load->helper('url');    
- 
+
+        
     }
 
     public function index(){
         $data['mahasiswa'] = $this->mahasiswa_model->getAll();
-        $this->load->view('indexmahasiswa', $data);
+        $this->load->view('index', $data);
     }
 
     public function inputdata(){

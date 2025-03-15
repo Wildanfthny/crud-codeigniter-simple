@@ -59,7 +59,7 @@
     <footer class="mt-5 mb-3">
     <div class="container my-auto">
       <div class="text-center my-auto">
-        <span>developed by <a href="https://WILLZ.gitlab.io" target="_blank" style="color: #424242;"><b>WILLZ</b><a></span>
+        <span>developed by <a href="https://indrijunanda.gitlab.io" target="_blank" style="color: #424242;"><b>indrijunanda</b><a></span>
       </div>
     </div>
   </footer> 
