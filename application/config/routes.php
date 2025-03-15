@@ -52,3 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'mahasiswa';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['api/mahasiswa']['GET']    = 'api/mahasiswa/index';
+$route['api/mahasiswa']['POST']   = 'api/mahasiswa/index';
+$route['api/mahasiswa']['PUT']    = 'api/mahasiswa/index';
+$route['api/mahasiswa']['DELETE'] = 'api/mahasiswa/index';

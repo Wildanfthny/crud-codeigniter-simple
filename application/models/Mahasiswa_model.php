@@ -1,69 +1,27 @@
-<?php defined('BASEPATH') OR exit ('No direct script access allowed!');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mahasiswa_model extends CI_Model {
-    private $_table = "mahasiswa";
 
-    public $id_mahasiswa;
-    public $nama;
-    public $nim;
-    public $fakultas;
-    public $jurusan;
+    private $table = "mahasiswa";
 
-    public function rules(){
-        return [
-            ['field' => 'nama',
-            'label' => 'Nama',
-            'rules' => 'required'],
-
-            ['field' => 'nim',
-            'label' => 'NIM', 
-            'rules' => 'required'],            
-
-            ['field' => 'fakultas',
-            'label' => 'Fakultas',
-            'rules' => 'required'],
-
-            ['field' => 'jurusan',
-            'label' => 'Jurusan',
-            'rules' => 'required']
-        ];
+    public function getAll() {
+        return $this->db->get($this->table)->result();
     }
 
-    public function getAll(){
-        $this->db->order_by('waktu_input','desc');        
-        return $this->db->get($this->_table)->result();
+    public function getByID($id) {
+        return $this->db->get_where($this->table, ["id_mahasiswa" => $id])->row();
     }
 
-    public function getByID($idmahasiswanya){
-        return $this->db->get_where($this->_table, ["id_mahasiswa" => $idmahasiswanya])->row();
+    public function simpan($data) {
+        return $this->db->insert($this->table, $data);
     }
 
-    public function simpan(){
-
-        $post = $this->input->post();
-        $this->id_mahasiswa = uniqid();
-        $this->nama = $post['nama'];
-        $this->nim = $post['nim'];
-        $this->fakultas = $post['fakultas'];
-        $this->jurusan = $post['jurusan'];
-        $this->db->insert($this->_table, $this);
-
+    public function updatedata($id, $data) {
+        return $this->db->update($this->table, $data, ['id_mahasiswa' => $id]);
     }
 
-    public function updatedata(){
-        $post = $this->input->post();
-        $this->id_mahasiswa = $post['idmahasiswanya'];
-        $this->nama = $post['nama'];
-        $this->nim = $post['nim'];
-        $this->fakultas = $post['fakultas'];
-        $this->jurusan = $post['jurusan'];
-        $this->db->update($this->_table, $this, array('id_mahasiswa' => $post['idmahasiswanya']));
+    public function hapus($id) {
+        return $this->db->delete($this->table, ['id_mahasiswa' => $id]);
     }
-
-    public function hapus($idmahasiswanya){
-        return $this->db->delete($this->_table, array('id_mahasiswa' => $idmahasiswanya));
-    }
-
 }
-
-?>

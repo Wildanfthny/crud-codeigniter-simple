@@ -69,6 +69,46 @@
           </div>
         </div>
       </div>    
+
+      <a class="btn btn-primary mb-2" href="<?php echo base_url();?>dosen/inputdatadosen"><i class="fa fa-upload"></i> Tambah Data Dosen</a>
+      <div class="card shadow-sm mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Data Dosen Universitas X</h6>
+        </div>                        
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th style="width: 30px;">No.</th>
+                  <th>Nama Dosen</th>
+                  <th>NIP</th>
+                  <th>Fakultas Dosen</th>
+                  <th>Jurusan Dosen</th>    
+                  <th style="width: 70px;">Aksi</th>                  
+                </tr>
+              </thead>                  
+              <tbody>
+              <?php $no=1;
+                foreach ($dosen as $datadosen): ?>
+              <tr>
+                <td style="text-align: center;"><?php echo $no++;?></td>
+                <td><?php echo $datadosen->nama_dosen;?></td>
+                <td><?php echo $datadosen->nip;?></td>
+                <td><?php echo $datadosen->fakultas_dosen;?></td>
+                <td><?php echo $datadosen->jurusan_dosen;?></td>
+                <td style="text-align: center;">
+                  <a href="<?php echo base_url();?>dosen/editdatadosen/<?php echo $datadosen->id_dosen;?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                  <a href="<?php echo base_url();?>dosen/hapusdatadosen/<?php echo $datadosen->id_dosen;?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                </td>                      
+              </tr>
+              <?php endforeach;?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>    
+
     <footer class="mt-5 mb-3">
     <div class="container my-auto">
       <div class="text-center my-auto">
